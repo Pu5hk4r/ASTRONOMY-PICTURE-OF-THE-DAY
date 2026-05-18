@@ -2,7 +2,7 @@
 
 APOD Explorer is a full-stack web application designed to bring the universe to your screen. Powered by the NASA Astronomy Picture of the Day (APOD) API, it features a stunning, premium UI with a cosmic theme, glassmorphism design, and robust caching via a FastAPI backend.
 
-![APOD Explorer Banner](frontend/src/assets/hero.png) *(Note: Add a screenshot of your beautiful UI here!)*
+![APOD Explorer Banner](https://github.com/Pu5hk4r/ASTRONOMY-PICTURE-OF-THE-DAY/blob/main/pic1.png) 
 
 ---
 
