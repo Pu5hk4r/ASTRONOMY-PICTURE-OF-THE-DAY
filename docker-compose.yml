@@ -1,0 +1,33 @@
+version: '3.9'
+
+# WHY Docker Compose?
+# You need Postgres and Redis running locally.
+# Without Docker you'd install them manually on your machine,
+# manage versions, config files, and ports yourself.
+# Docker Compose gives you a one-command setup: `docker compose up -d`
+# and tears it all down cleanly: `docker compose down`
+
+services:
+  postgres:
+     image: postgres:16-alpine  # alpine = smaller image, same Postgres
+     container_name: apod_postgres
+     environment:
+       POSTGRES_USER: apod_user
+       POSTGRES_PASSWORD: apod_pass
+       POSTGRES_DB: apod_db
+  ports:
+    - "5433:5432"                # host:container — access from your machine
+  volumes:
+    - postgres_data:/var/lib/postgresql/data  # persist data across restarts
+
+  redis:
+     image: redis:7-alpine
+     container_name: apod_redis
+     ports:
+       - "6379:6379"
+     volumes:
+       - redis_data:/data
+
+volumes:
+   postgres_data:
+   redis_data:
