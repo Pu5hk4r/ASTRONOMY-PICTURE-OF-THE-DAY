@@ -4,6 +4,10 @@ APOD Explorer is a full-stack web application designed to bring the universe to 
 
 ![APOD Explorer Banner](https://github.com/Pu5hk4r/ASTRONOMY-PICTURE-OF-THE-DAY/blob/main/pic1.png) 
 
+![APOD Explorer Banner](https://github.com/Pu5hk4r/ASTRONOMY-PICTURE-OF-THE-DAY/blob/main/pic2.png) 
+
+![APOD Explorer Banner](https://github.com/Pu5hk4r/ASTRONOMY-PICTURE-OF-THE-DAY/blob/main/pic3.png) 
+
 ---
 
 ## ✨ Key Features
@@ -26,6 +30,8 @@ APOD Explorer is a full-stack web application designed to bring the universe to 
 ---
 
 ## 🛠️ Technology Stack
+
+![APOD Explorer Banner](https://github.com/Pu5hk4r/ASTRONOMY-PICTURE-OF-THE-DAY/blob/main/APOD.png) 
 
 | Frontend | Backend | DevOps |
 | --- | --- | --- |
