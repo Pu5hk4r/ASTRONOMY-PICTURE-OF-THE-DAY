@@ -1,4 +1,7 @@
 '''
+
+Why before DB? Every layer below needs secrets — DB password, NASA key, Redis URL. 
+Config must exist before anything that uses it. You'll import settings everywhere.
 Why pydantic-setting?
 your app needs secretes (API KEYS ,DB PASSWORDS) and config (port numbers, cache TTLs).
 hardcoding them is dangerous (they leak into git) and inflexible (different values in dev vs prod)
@@ -13,35 +16,29 @@ HOW IT WORK:
  3.you get a typed, validated settings objects anywhere in your app
  
 '''
+from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    #NASA_API
-     nasa_api_key: str
+    # NASA API
+    nasa_api_key: str
 
-     #Database
-     database_url: str 
+    # Database
+    database_url: str
 
-     #Redis
-     redis_url: str
+    # Redis
+    redis_url: str
 
-     #Cache TTL (Seconds)
-     #why 3600? APOD updates once in a day. Caching for 1 hour means
-     #24 request/day max to NASA instead of one per user visit.
+    # Cache TTL (seconds)
+    apod_cache_ttl: int = 3600
 
-     apod_cache_ttl: int = 3600
+    # App
+    app_title: str = "APOD Explorer"
+    debug: bool = False
 
-     #APP
-     app_title: str = "APOD Explorer"
-     debug : bool = False
+    model_config = SettingsConfigDict(
+        env_file=Path(__file__).parent.parent.parent / ".env",
+        env_file_encoding="utf-8"
+    )
 
-     model_config = SettingsConfigDict(
-          env_files=".env",
-          env_file_emcoding= "utf-8"
-     )
-
-# Singleton - import this everywhere,never instantiate Settings() again
-settings= Settings()
-
-
-
+settings = Settings()
